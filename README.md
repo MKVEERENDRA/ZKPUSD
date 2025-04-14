@@ -57,8 +57,8 @@ Whale Privacy
 
 Large holders can move funds without triggering bots or affecting price sentiment.
 
-🚨 Problem I am Solving
-❌ Problem:
+## 🚨 Problem I am Solving
+### ❌ Problem:
 All on-chain transactions are public, traceable, and link user identities through wallet behavior. This leads to:
 
 Loss of financial privacy
@@ -69,7 +69,7 @@ Regulatory challenges (privacy vs compliance)
 
 Reputational risks for DAOs, funds, or individuals
 
-✅ Your Solution:
+### ✅ MY Solution:
 ZKPUSD introduces selective privacy for PYUSD using Zero-Knowledge Proofs, while staying compatible with public chains and EVM standards:
 
 Breaks traceability between deposit and withdrawal
