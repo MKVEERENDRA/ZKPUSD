@@ -6,36 +6,37 @@ A decentralized privacy solution for PYUSD transactions using zero-knowledge pro
 
 The PYUSD Privacy Pool allows users to deposit and withdraw PYUSD tokens with enhanced privacy. It leverages blockchain technology and zero-knowledge cryptography to break the on-chain link between depositor and recipient addresses, making it difficult to trace fund transfers while maintaining the integrity of the financial system.
 
-🛠 How It Works
-1. Deposit Phase
-Users generate a secret (random 32 bytes).
+## 🛠 How It Works:
 
-A commitment hash is created:
-commitment = keccak256(amount + secret + timestamp)
+ 1. Deposit Phase
+ Users generate a secret (random 32 bytes).
 
-The user deposits PYUSD into the pool with this commitment.
+  A commitment hash is created:
+ commitment = keccak256(amount + secret + timestamp)
 
-This hash is saved both on-chain (smart contract) and locally (browser localStorage).
+ The user deposits PYUSD into the pool with this commitment.
 
-2. Privacy Layer
-Since no public address is tied to the deposit, there’s no on-chain link between the sender and eventual recipient.
+ This hash is saved both on-chain (smart contract) and locally (browser localStorage).
 
-Only someone with the original secret can later prove they made the deposit.
+ 2. Privacy Layer
+ Since no public address is tied to the deposit, there’s no on-chain link between the sender and eventual recipient.
 
-3. Withdrawal Phase
-The user provides the same secret and commitment to prove they own the deposit.
+ Only someone with the original secret can later prove they made the deposit.
 
-The contract verifies:
+ 3. Withdrawal Phase
+ The user provides the same secret and commitment to prove they own the deposit.
 
-The commitment exists
+ The contract verifies:
 
-It hasn’t been spent before
+ The commitment exists
 
-A timelock period has passed
+ It hasn’t been spent before
 
-If all checks pass, funds are released to the recipient (can be a different address from the depositor).
+ A timelock period has passed
 
-🔒 Use Cases
+ If all checks pass, funds are released to the recipient (can be a different address from the depositor).
+
+### 🔒 Use Cases
 Private Transfers
 
 Send PYUSD to someone without the entire world seeing the link between your wallet and theirs.
