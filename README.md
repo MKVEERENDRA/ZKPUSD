@@ -6,6 +6,79 @@ A decentralized privacy solution for PYUSD transactions using zero-knowledge pro
 
 The PYUSD Privacy Pool allows users to deposit and withdraw PYUSD tokens with enhanced privacy. It leverages blockchain technology and zero-knowledge cryptography to break the on-chain link between depositor and recipient addresses, making it difficult to trace fund transfers while maintaining the integrity of the financial system.
 
+🛠 How It Works
+1. Deposit Phase
+Users generate a secret (random 32 bytes).
+
+A commitment hash is created:
+commitment = keccak256(amount + secret + timestamp)
+
+The user deposits PYUSD into the pool with this commitment.
+
+This hash is saved both on-chain (smart contract) and locally (browser localStorage).
+
+2. Privacy Layer
+Since no public address is tied to the deposit, there’s no on-chain link between the sender and eventual recipient.
+
+Only someone with the original secret can later prove they made the deposit.
+
+3. Withdrawal Phase
+The user provides the same secret and commitment to prove they own the deposit.
+
+The contract verifies:
+
+The commitment exists
+
+It hasn’t been spent before
+
+A timelock period has passed
+
+If all checks pass, funds are released to the recipient (can be a different address from the depositor).
+
+🔒 Use Cases
+Private Transfers
+
+Send PYUSD to someone without the entire world seeing the link between your wallet and theirs.
+
+Private Payrolls
+
+Companies can pay employees or contributors without revealing all salary details publicly on-chain.
+
+Donation Systems
+
+Donors can support causes or projects anonymously while preserving proof of contribution.
+
+DeFi Fund Management
+
+Move capital between protocols or wallets without front-running, tracing, or revealing allocation strategies.
+
+Whale Privacy
+
+Large holders can move funds without triggering bots or affecting price sentiment.
+
+🚨 Problem I am Solving
+❌ Problem:
+All on-chain transactions are public, traceable, and link user identities through wallet behavior. This leads to:
+
+Loss of financial privacy
+
+Front-running and MEV attacks
+
+Regulatory challenges (privacy vs compliance)
+
+Reputational risks for DAOs, funds, or individuals
+
+✅ Your Solution:
+ZKPUSD introduces selective privacy for PYUSD using Zero-Knowledge Proofs, while staying compatible with public chains and EVM standards:
+
+Breaks traceability between deposit and withdrawal
+
+Retains auditability via on-chain commitments
+
+Ensures secure proof-of-ownership without revealing user identity
+
+Uses timelock mechanisms to prevent abuse or immediate withdrawals
+
 ## Project Structure
 
 ### Core Components
